@@ -28,6 +28,7 @@ end
 target 'ProyectoAsistenciaiOS' do
   config = use_native_modules!
 
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
@@ -39,8 +40,11 @@ target 'ProyectoAsistenciaiOS' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+ 
+
   target 'ProyectoAsistenciaiOSTests' do
     inherit! :complete
+    
     # Pods for testing
   end
 
