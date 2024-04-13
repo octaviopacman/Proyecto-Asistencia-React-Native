@@ -9,7 +9,7 @@ import {
    } from 'react-native';
 
 
-// Definición de un componente de función
+
 function Login(props){
     const [mostrarCodigo, setMostrarCodigo] = useState(false);
     const [formData, setFormData] = useState({
@@ -17,15 +17,10 @@ function Login(props){
       contrasena: '',
 
     });
+    const[isLogged, setisLogged] = useState(false);
     console.log(mostrarCodigo);
 
-    let codigo;
-
-    if (mostrarCodigo === true){
-      codigo = <QRCodeComponent data={formData.nombre}/>
-    };
-
-    const handleChange = (name, value) => {
+        const handleChange = (name, value) => {
       setFormData({ ...formData, [name]: value });
     };
     
@@ -33,31 +28,47 @@ function Login(props){
     const handleForm = (e) => {
       e.preventDefault();
       console.log("Inicio de Sesion");
-      setMostrarCodigo(true);
       console.log(formData);
-    };
+
+      setisLogged(!isLogged);
+      };
 
     const styles = StyleSheet.create({
       textinput: {
         backgroundColor: '#8c8c8c',
+        height: '15%'
       },
       container: {
-        width: '50%',
+        width: '75%',
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        padding: '2%',
+        
+      },
+      text: {
+        fontSize: 20,
+        textAlign: 'center',
+        paddingBottom: '2%',
+        paddingTop: '2%'
       }
     });
     
+    let content;
+    if (isLogged){
+      content = <QRCodeComponent data={formData.correo} />; /////// ARREGLAR
+    }
+
   return (
     <View>
       <View style={styles.container}>
-        <Text>Nombre de Usuario:</Text>
+        <Text style={styles.text}>Correo:</Text>
         <TextInput
           style={styles.textinput}
+          ty
           onChangeText={(text) => handleChange('nombre', text)}
           value={formData.nombre}
         />
-        <Text>Contraseña:</Text>
+        <Text style={styles.text}>Contraseña:</Text>
         <TextInput
           style={styles.textinput}
           secureTextEntry={true}
@@ -68,7 +79,7 @@ function Login(props){
       </View>
 
       <View style={{ marginTop: 20 }}>
-        <Text>{codigo}</Text>
+        {content} 
       </View>
     </View>
   );

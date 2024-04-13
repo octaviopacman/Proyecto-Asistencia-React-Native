@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function Header()
 {
@@ -18,16 +19,19 @@ function Header()
         button: {
             backgroundColor: '#fff',
             
-        }
+        },
+        
     })
     const PressEvent = (e) => {
         console.log('Menu Presionado');
     }
+  
 
     return(
         <View style={styles.container}>
-            <Button title="Menu" color="#fff" onPress={PressEvent} style={styles.button} />
+            <Button title="menu" color="#fff" onPress={PressEvent} style={styles.button} />
             <Text style={styles.title}>Escuela de Educación Secundaria Técnica Nº4</Text>
+            
         </View>
     )
 }

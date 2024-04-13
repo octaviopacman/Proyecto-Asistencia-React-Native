@@ -19,6 +19,7 @@ import {
 import Header from './components/header.js';
 import QRCodeComponent from './components/codigo.js';
 import Login from './components/login.js';
+import RegistroNuevo from './components/registro.js';
 
 
 
@@ -39,8 +40,7 @@ function App(): React.JSX.Element {
         <View style={styles.container}>
           <Header />
           <Login />
-           <QRCodeComponent data={codigo}/>
-
+          <RegistroNuevo />
         </View>
       
   )
