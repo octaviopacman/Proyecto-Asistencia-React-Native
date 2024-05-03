@@ -30,7 +30,7 @@ function Login(props){
       console.log("Inicio de Sesion");
       console.log(formData);
 
-      setisLogged(!isLogged);
+      setisLogged(true);
       };
 
     const styles = StyleSheet.create({
@@ -39,23 +39,34 @@ function Login(props){
         height: '15%'
       },
       container: {
+        
         width: '75%',
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: '2%',
-        
+        borderRadius: '1px',
       },
       text: {
         fontSize: 20,
         textAlign: 'center',
         paddingBottom: '2%',
-        paddingTop: '2%'
+        paddingTop: '2%',
+        ...Platform.select({
+          android: {
+            color: 'black',
+          }
+        }),
+
+      },
+      nombre: {
+        textAlign: 'center',
+        textTransform: 'capitalize',
       }
     });
-    
+    let qrvar = formData.nombre;
     let content;
     if (isLogged){
-      content = <QRCodeComponent data={formData.correo} />; /////// ARREGLAR
+      content = <QRCodeComponent data={String(qrvar)} />; /////// ARREGLAR
     }
 
   return (
@@ -78,8 +89,9 @@ function Login(props){
         <Button title="Iniciar Sesión" onPress={handleForm} />
       </View>
 
-      <View style={{ marginTop: 20 }}>
-        {content} 
+      <View style={{ marginTop: 20, marginLeft: 'auto', marginRight: 'auto' }}>
+        <Text>{content}</Text>
+        <Text style={styles.nombre}>{formData.nombre}</Text> 
       </View>
     </View>
   );

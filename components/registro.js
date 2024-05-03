@@ -1,15 +1,9 @@
 import React from "react";
-import { TextInput } from "react-native";
+import { TextInput, View } from "react-native";
 
 export default function RegistroNuevo() {
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger
-  } = useForm();
-
+  
     const style = {
     error: {
       color: "red",

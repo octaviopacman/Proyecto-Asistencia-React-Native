@@ -9,14 +9,18 @@ function QRCodeComponent(data) {
         codigo: {
             marginLeft: 'auto',
             marginRight: 'auto',
-            
+            textAlign: 'center'
         }
     })
+
+    console.log(data.data);
+
+    let textocodigo = data.data; /// por x motivo esto hace q ande
 
 
     return (
         <View style={styles.codigo}>
-            <QRCode content={data}/>                
+            <QRCode content={textocodigo}/>            
         </View>
     );
 }
