@@ -37,7 +37,7 @@ function Login(props) {
       body: JSON.stringify({ correo: formData.correo, password: formData.password })
     };
 
-    fetch('http://192.168.1.51/login', requestOptions)
+    fetch('http://192.168.1.51:8000/login', requestOptions)
       .then(response => response.json())
       .then(data => {
         // Asumiendo que el hashqr está en el objeto data
