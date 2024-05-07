@@ -82,7 +82,7 @@ function Login(props) {
 
    boton:{
     borderRadius: 10,
-    backgroundColor:'#0077b6',
+    backgroundColor:'transparent',
     height:'18%',
     alignItems: 'center',
     width:'100%',

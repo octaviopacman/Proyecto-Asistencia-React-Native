@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Platform, Text, View,TouchableOpacity } from "react-native";
+import { Button, StyleSheet, Platform, Text, View, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 
 function Header() {
@@ -10,7 +10,9 @@ function Header() {
             backgroundColor: '#03045e',
             ...Platform.select({
                 ios: {
-                    paddingTop: '17%',
+                    paddingTop: '13%',
+                    height: '13%',
+                    alignItems: 'center',
                 },
                 android: {
                     height: '6%',
@@ -27,22 +29,27 @@ function Header() {
                 android: {
                     fontWeight: '600',
                     marginLeft: 12,
-                    fontSize:17,
+                    fontSize: 17,
                 },
             }),
-            
-            
+
+
         },
         boton: {
-        backgroundColor:'#000814',
-        alignItems: 'center',
-        height:'100%',
-        width:'10%',
-        justifyContent: 'center',
+            backgroundColor: '#000814',
+            alignItems: 'center',
+            height: '100%',
+            width: '10%',
+            justifyContent: 'center',
+            ...Platform.select({
+                ios: {
+                   
+                },
+            })
         },
-        botonText:{
-            color:'white',
-            alignItems:'center',
+        botonText: {
+            color: 'white',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: 15,
             fontWeight: 'bold',
@@ -57,9 +64,9 @@ function Header() {
 
     return (
         <View style={styles.container}>
-             <TouchableOpacity onPress={PressEvent} style={styles.boton}>
-      <Text style={styles.botonText}>Menu</Text>
-    </TouchableOpacity>
+            <TouchableOpacity onPress={PressEvent} style={styles.boton}>
+                <Text style={styles.botonText}>Menu</Text>
+            </TouchableOpacity>
             <Text style={styles.title}>Escuela de Educación Secundaria Técnica Nº4</Text>
 
         </View>
