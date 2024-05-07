@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Platform, Text, View } from "react-native";
+import { Button, StyleSheet, Platform, Text, View,TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 
 function Header() {
@@ -7,19 +7,15 @@ function Header() {
         container: {
             display: 'flex',
             flexDirection: 'row',
-            backgroundColor: '#2d63e0',
+            backgroundColor: '#03045e',
             ...Platform.select({
                 ios: {
                     paddingTop: '17%',
                 },
                 android: {
-
-                    paddingTop: '0%',
-                    height: '5%',
-                    color: 'black',
+                    height: '6%',
                     alignItems: 'center',
-
-                }
+                },
             }),
 
 
@@ -27,11 +23,30 @@ function Header() {
         title: {
             color: '#fff',
             fontSize: 15,
+            ...Platform.select({
+                android: {
+                    fontWeight: '600',
+                    marginLeft: 12,
+                    fontSize:17,
+                },
+            }),
+            
+            
         },
-        button: {
-            backgroundColor: '#fff',
-            height: '100%'
+        boton: {
+        backgroundColor:'#000814',
+        alignItems: 'center',
+        height:'100%',
+        width:'10%',
+        justifyContent: 'center',
         },
+        botonText:{
+            color:'white',
+            alignItems:'center',
+            justifyContent: 'center',
+            fontSize: 15,
+            fontWeight: 'bold',
+        }
 
 
     })
@@ -42,7 +57,9 @@ function Header() {
 
     return (
         <View style={styles.container}>
-            <Button title="Menu" color="black" onPress={PressEvent} style={styles.button} />
+             <TouchableOpacity onPress={PressEvent} style={styles.boton}>
+      <Text style={styles.botonText}>Menu</Text>
+    </TouchableOpacity>
             <Text style={styles.title}>Escuela de Educación Secundaria Técnica Nº4</Text>
 
         </View>

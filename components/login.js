@@ -6,7 +6,9 @@ import {
   Text,
   StyleSheet,
   Button,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform,
+  TouchableOpacity,
 } from 'react-native';
 
 function Login(props) {
@@ -56,10 +58,12 @@ function Login(props) {
     textinput: {
       backgroundColor: '#8c8c8c',
       height: 40,  // Ajustado para un valor más estándar en React Native
-      marginBottom: 10
+      marginBottom: 15,
+      borderRadius: 15,
+      textAlign: 'center',
     },
     container: {
-      width: '75%',
+      width: '78%',
       marginLeft: 'auto',
       marginRight: 'auto',
       padding: 20,  // Ajustado para un valor más estándar en React Native
@@ -68,13 +72,32 @@ function Login(props) {
     text: {
       fontSize: 20,
       textAlign: 'center',
-      paddingBottom: 20,  // Ajustado para un valor más estándar en React Native
-      paddingTop: 20
+      paddingBottom: 5,  // Ajustado para un valor más estándar en React Native
+      paddingTop: 5,
+      color: 'black',
+      
+     
     },
+
+   boton:{
+    borderRadius: 10,
+    backgroundColor:'#0077b6',
+    height:'18%',
+    alignItems: 'center',
+    width:'100%',
+    justifyContent: 'center',
+    
+   },
+   botonText:{
+   
+    fontSize: 18,
+    color: 'white',
+   },
     correo: {
       textAlign: 'center',
-      textTransform: 'capitalize'
-    }
+      textTransform: 'capitalize',
+    },
+
   });
 
   let content;
@@ -102,7 +125,9 @@ function Login(props) {
           onChangeText={(text) => handleChange('password', text)}
           value={formData.password}
         />
-        <Button title="Iniciar Sesión" onPress={handleLogin} />
+        <TouchableOpacity onPress={handleLogin} style={styles.boton}>
+      <Text style={styles.botonText}>Iniciar Sesión</Text>
+    </TouchableOpacity>
       </View>
 
       <View style={{ marginTop: 20, marginLeft: 'auto', marginRight: 'auto' }}>
