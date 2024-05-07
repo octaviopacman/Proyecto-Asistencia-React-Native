@@ -8,6 +8,8 @@ import {
   Button,
   ActivityIndicator
 } from 'react-native';
+import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics'
+
 
 function Login(props) {
   const [formData, setFormData] = useState({
@@ -18,6 +20,9 @@ function Login(props) {
   const [loginData, setLoginData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const rnBiometrics = new ReactNativeBiometrics();
+
+
 
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -26,6 +31,12 @@ function Login(props) {
   const handleLogin = async () => {
     console.log("Inicio de sesión");
     console.log(formData);
+    const biometryType = await rnBiometrics.isSensorAvailable();
+
+    if (biometryType === BiometryTypes.FaceID) {
+      console.log("Face id");
+    }
+
 
     setLoading(true);
     setError(null);
