@@ -75,6 +75,7 @@ function Login(props) {
       paddingBottom: 5,  // Ajustado para un valor más estándar en React Native
       paddingTop: 5,
       color: 'black',
+      fontWeight: '500',
       
      
     },
@@ -92,6 +93,7 @@ function Login(props) {
    
     fontSize: 18,
     color: 'white',
+    fontWeight: '500',
    },
     correo: {
       textAlign: 'center',
