@@ -5,9 +5,10 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -20,6 +21,7 @@ import Header from './components/header.js';
 import QRCodeComponent from './components/codigo.js';
 import Login from './components/login.js';
 import RegistroNuevo from './components/registro.js';
+import SplashScreen from 'react-native-splash-screen';
 
 
 
@@ -29,11 +31,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   }
 
+
 });
 
 function App(): React.JSX.Element {
 
   let codigo = 'carlitos';
+
+  useEffect(() => {
+    if (Platform.OS === 'android') SplashScreen.hide();
+  }, [])
 
   return (
     
