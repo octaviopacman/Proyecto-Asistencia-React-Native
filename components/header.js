@@ -18,6 +18,8 @@ function Header() {
                 android: {
                     height: '6%',
                     alignItems: 'center',
+                    justifyContent: 'center',
+                   
                 },
             }),
 
@@ -30,8 +32,10 @@ function Header() {
             ...Platform.select({
                 android: {
                     fontWeight: '600',
-                    marginLeft: 12,
+                    marginRight: '20%',
                     fontSize: 17,
+                    justifyContent:'center',
+                    alignItems:'center',
                 },
             }),
 
@@ -41,22 +45,21 @@ function Header() {
             backgroundColor: 'transparent',
             alignItems: 'center',
             height: '50%',
-            width: '17%',
-            justifyContent: 'center',
+            width: '20%',
+            
             ...Platform.select({
                 ios: {
 
                 },
+                android:{
+                    width: '20%',
+                    height: '70%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }
             })
         },
-        botonText: {
-            color: 'white',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: 15,
-            fontWeight: 'bold',
-        }
-
+    
 
     })
     const PressEvent = (e) => {
@@ -67,7 +70,7 @@ function Header() {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={PressEvent} style={styles.boton}>
-                <Image source={require('./list.png')} onPress={PressEvent} style={styles.boton} />
+                <Image source={require('./list.png')} onPress={PressEvent} style={styles.boton}/>
             </TouchableOpacity>
             <Text style={styles.title}>Escuela de Educación Secundaria Técnica Nº4</Text>
         </View>
