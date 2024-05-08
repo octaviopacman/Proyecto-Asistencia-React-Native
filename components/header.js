@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, StyleSheet, Platform, Text, View, TouchableOpacity } from "react-native";
+import { Button, StyleSheet, Platform, Text, View, TouchableOpacity, Image } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
+
 
 function Header() {
     const styles = StyleSheet.create({
@@ -25,6 +26,7 @@ function Header() {
         title: {
             color: '#fff',
             fontSize: 15,
+            fontWeight: '600',
             ...Platform.select({
                 android: {
                     fontWeight: '600',
@@ -36,14 +38,14 @@ function Header() {
 
         },
         boton: {
-            backgroundColor: '#000814',
+            backgroundColor: 'transparent',
             alignItems: 'center',
-            height: '100%',
-            width: '10%',
+            height: '50%',
+            width: '17%',
             justifyContent: 'center',
             ...Platform.select({
                 ios: {
-                   
+
                 },
             })
         },
@@ -65,10 +67,9 @@ function Header() {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={PressEvent} style={styles.boton}>
-                <Text style={styles.botonText}>Menu</Text>
+                <Image source={require('./list.png')} onPress={PressEvent} style={styles.boton} />
             </TouchableOpacity>
             <Text style={styles.title}>Escuela de Educación Secundaria Técnica Nº4</Text>
-
         </View>
     )
 }

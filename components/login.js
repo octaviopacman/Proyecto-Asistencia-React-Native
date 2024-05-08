@@ -39,7 +39,7 @@ function Login(props) {
       body: JSON.stringify({ correo: formData.correo, password: formData.password })
     };
 
-    fetch('http://192.168.1.51:8000/login', requestOptions)
+    fetch('http://10.0.2.19:8000/login', requestOptions) //// REEMPLAZAR POR IP POR IP DE LA COMPUTADORA, NO LOCALHOST
       .then(response => response.json())
       .then(data => {
         // Asumiendo que el hashqr está en el objeto data
@@ -61,6 +61,7 @@ function Login(props) {
       marginBottom: 15,
       borderRadius: 15,
       textAlign: 'center',
+      fontSize: 20,
     },
     container: {
       width: '78%',
@@ -82,7 +83,7 @@ function Login(props) {
 
    boton:{
     borderRadius: 10,
-    backgroundColor:'transparent',
+    backgroundColor:'#000814',
     height:'18%',
     alignItems: 'center',
     width:'100%',
