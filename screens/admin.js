@@ -17,4 +17,5 @@ function Admin(){
         </View>
     )
 }
+export default Admin;
 

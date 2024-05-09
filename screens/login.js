@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import QRCodeComponent from './codigo';
+import QRCodeComponent from '../components/codigo';
 import {
   View,
   TextInput,
