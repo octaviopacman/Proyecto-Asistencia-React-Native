@@ -39,7 +39,7 @@ function Login(props) {
       body: JSON.stringify({ correo: formData.correo, password: formData.password })
     };
 
-    fetch('http://10.0.2.19:8000/login', requestOptions) //// REEMPLAZAR POR IP POR IP DE LA COMPUTADORA, NO LOCALHOST
+    fetch('http://192.168.1.49:8000/login', requestOptions) //// REEMPLAZAR POR IP POR IP DE LA COMPUTADORA, NO LOCALHOST
       .then(response => response.json())
       .then(data => {
         // Asumiendo que el hashqr está en el objeto data
@@ -77,35 +77,43 @@ function Login(props) {
       paddingTop: 5,
       color: 'black',
       fontWeight: '500',
-      
-     
+
+
     },
 
-   boton:{
-    borderRadius: 10,
-    backgroundColor:'#000814',
-    height:'18%',
-    alignItems: 'center',
-    width:'100%',
-    justifyContent: 'center',
-    
-   },
-   botonText:{
-   
-    fontSize: 18,
-    color: 'white',
-    fontWeight: '500',
-   },
+    boton: {
+      borderRadius: 10,
+      backgroundColor: '#000814',
+      height: '18%',
+      alignItems: 'center',
+      width: '100%',
+      justifyContent: 'center',
+
+    },
+    botonText: {
+
+      fontSize: 18,
+      color: 'white',
+      fontWeight: '500',
+    },
     correo: {
       textAlign: 'center',
       textTransform: 'capitalize',
     },
+    codigo: {
+      marginTop: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      backgroundColor: '#03045e',
+      padding: 20,
+      borderRadius: 25,
+    }
 
   });
 
   let content;
   if (loading) {
-    content = <ActivityIndicator size="large" color="#0000ff" />;
+    content = <ActivityIndicator size="large" color="gray" />;
   } else if (isLogged) {
     content = <QRCodeComponent data={String(loginData)} />;
   } else if (error) {
@@ -129,13 +137,16 @@ function Login(props) {
           value={formData.password}
         />
         <TouchableOpacity onPress={handleLogin} style={styles.boton}>
-      <Text style={styles.botonText}>Iniciar Sesión</Text>
-    </TouchableOpacity>
+          <Text style={styles.botonText}>Iniciar Sesión</Text>
+        </TouchableOpacity>
       </View>
 
-      <View style={{ marginTop: 20, marginLeft: 'auto', marginRight: 'auto' }}>
+      {isLogged && loginData && (
+      <View style={styles.codigo}>
         {content}
       </View>
+    )}
+
     </View>
   );
 }

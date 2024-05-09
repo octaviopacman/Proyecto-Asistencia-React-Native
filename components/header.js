@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Platform, Text, View, TouchableOpacity, Image } from "react-native";
+import { Button, StyleSheet, Platform, Text, View, TouchableOpacity, Image, StatusBar } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
@@ -69,6 +69,9 @@ function Header() {
 
     return (
         <View style={styles.container}>
+            <StatusBar 
+                backgroundColor="#03045e"
+            />
             <TouchableOpacity onPress={PressEvent} style={styles.boton}>
                 <Image source={require('./list.png')} onPress={PressEvent} style={styles.boton}/>
             </TouchableOpacity>
