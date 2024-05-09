@@ -101,8 +101,8 @@ function Login(props) {
       textTransform: 'capitalize',
     },
     codigo: {
-      marginTop: 20,
-      marginLeft: 'auto',
+      marginTop: 0,
+      marginLeft:  'auto',
       marginRight: 'auto',
       backgroundColor: '#03045e',
       padding: 20,
